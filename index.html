@@ -801,7 +801,6 @@ function go(n) {
 }
 
 go(0);
-setLang('en');
 
 function toggleNode(headerEl) {
   const node = headerEl.parentElement;
@@ -3017,6 +3016,7 @@ function setLang(lang) {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
 }
+setLang('en');
 </script>
 </body>
 </html>
