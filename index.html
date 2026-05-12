@@ -212,7 +212,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
 </head>
 <body>
 <div class="lang-switcher" id="lang-switcher">
-  <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" data-lang="en" onclick="setLang('en')" class="lang-btn active">EN</button>
   <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
   <button class="lang-btn active" data-lang="ru" onclick="setLang('ru')">RU</button>
   <button class="lang-btn" data-lang="ua" onclick="setLang('ua')" style="display:none;">UA</button>
@@ -801,6 +801,7 @@ function go(n) {
 }
 
 go(0);
+setLang('en');
 
 function toggleNode(headerEl) {
   const node = headerEl.parentElement;
