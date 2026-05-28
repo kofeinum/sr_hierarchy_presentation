@@ -188,7 +188,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
 .lbadge-name   { color: var(--dim); font-size: .8em; margin-top: 2px; }
 
 .fix-step {
-  display: grid; grid-template-columns: 52px 1fr 220px;
+  display: grid; grid-template-columns: 52px 1fr auto;
   align-items: center; gap: 20px; padding: 12px 18px;
 }
 .fix-step-num {
@@ -239,7 +239,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
 
     <div style="margin-top:44px; display:flex; gap:10px; flex-wrap:wrap;">
       <span class="tag tag-root">Корневой хелпер</span>
-      <span class="tag tag-base">base_a</span>
+      <span class="tag tag-base">SKU-base_a</span>
       <span class="tag tag-helper">Подвижный хелпер</span>
       <span class="tag tag-sgeo">Неподвижная геометрия</span>
       <span class="tag tag-dgeo">Подвижная геометрия</span>
@@ -323,15 +323,15 @@ code { font-family: Consolas, monospace; font-size: .9em; }
 
     <div class="card" style="border-left:4px solid var(--col-base); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-base">Статичный хелпер</span></div>
-      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">base_a</div>
+      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">SKU-base_a</div>
       <div style="color:var(--dim); font-size:1.02em;">Обязательный первый дочерний хелпер корня. Контейнер неподвижной геометрии и стартовая точка всей динамики.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-helper); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-helper">Подвижный хелпер</span></div>
       <div style="font-family:Consolas; font-size:1.02em;">
-        <div style="color:var(--col-helper);">slide_a00H</div>
-        <div style="color:var(--col-helper);">lift_b00a00H</div>
+        <div style="color:var(--col-helper);">SKU-slide_a00H</div>
+        <div style="color:var(--col-helper);">SKU-lift_b00a00H</div>
       </div>
       <div style="color:var(--dim); font-size:1.02em;">Ось движения для одной детали. Содержит букву типа, номер экземпляра и ссылку на родителя. <code>H</code> на конце — маркер (подробнее на след. слайде).</div>
     </div>
@@ -339,7 +339,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
     <div class="card" style="border-left:4px solid var(--col-sgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-sgeo">Неподвижная геометрия</span></div>
       <div style="font-family:Consolas; font-size:1.02em; color:var(--col-sgeo);">SKU-…-metal_a</div>
-      <div style="color:var(--dim); font-size:1.02em;">Живёт под <code>base_a</code>. Имя совпадает с именем материала — один к одному.</div>
+      <div style="color:var(--dim); font-size:1.02em;">Живёт под <code>SKU-base_a</code>. Имя совпадает с именем материала — один к одному.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-dgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
@@ -361,7 +361,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Уровень 1 — прямо под base_a, родитель неподвижный:
+    Уровень 1 — прямо под SKU-base_a, родитель неподвижный:
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">slide</div><div class="fp-label">название элемента</div></div>
@@ -375,7 +375,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Уровень 2 — внутри slide_a00H, родитель подвижный:
+    Уровень 2 — внутри SKU-slide_a00H, родитель подвижный:
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">lift</div><div class="fp-label">название элемента</div></div>
@@ -411,7 +411,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
       <div style="color:var(--dim); font-size:1em; line-height:1.65;">
         Только <strong style="color:var(--text);">прямой</strong> подвижный родитель:
         его буква + номер.<br>
-        Если родитель — <code>base_a</code>, этот блок не нужен.
+        Если родитель — <code>SKU-base_a</code>, этот блок не нужен.
       </div>
     </div>
 
@@ -422,7 +422,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
     <div style="color:var(--dim); font-size:1.02em; line-height:1.7;">
       Существующие проверки распознают копии объектов по числовому окончанию — <code>_01</code>, <code>_02</code>…
       Буква <code>H</code> на конце предотвращает ложное срабатывание проверки:
-      <code>slide_a00H</code> не выглядит как копия <code>slide_a</code>.
+      <code>SKU-slide_a00H</code> не выглядит как копия <code>slide_a</code>.
     </div>
   </div>
 </div>
@@ -450,13 +450,13 @@ code { font-family: Consolas, monospace; font-size: .9em; }
 
     <div>
       <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Примеры</div>
-      <div class="code-block" style="font-size:0.94em; line-height:2.2;">
-<span style="color:var(--dim);">Хелпер            Материал      Геометрия</span>
-<span style="color:var(--col-helper);">slide_a00H</span>      <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span>
-<span style="color:var(--col-helper);">lift_b00a00H</span>   <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span>
-<span style="color:var(--col-helper);">seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span>
-<span style="color:var(--col-helper);">armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span>
-<span style="color:var(--col-helper);">headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span>
+      <div class="code-block" style="font-size:0.94em; line-height:2.2; overflow-x:auto;">
+<div style="white-space:nowrap;"><span style="color:var(--dim);">Хелпер                   Материал       Геометрия</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-slide_a00H</span>       <span style="color:var(--col-mat);">metal_a</span>    →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-lift_b00a00H</span>     <span style="color:var(--col-mat);">metal_a</span>    →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span></div>
       </div>
 
       <div class="panel" style="margin-top:14px; border-color:rgba(181,101,213,.25);">
@@ -481,13 +481,13 @@ code { font-family: Consolas, monospace; font-size: .9em; }
         <div style="color:var(--col-dgeo); font-weight:600; margin-bottom:6px;">Суффикс хелпера без H</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
           Часть имени хелпера после последнего <code>_</code> , без финального <code>H</code>.<br>
-          Из <code style="color:var(--col-helper);">lift_b00a00H</code> берём <code style="color:var(--col-dgeo);">b00a00</code>.
+          Из <code style="color:var(--col-helper);">SKU-lift_b00a00H</code> берём <code style="color:var(--col-dgeo);">b00a00</code>.
         </div>
       </div>
       <div class="panel">
         <div style="font-weight:600; margin-bottom:6px;">Неподвижная геометрия</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
-          Под <code>base_a</code> — имя просто равно имени материала, без добавок.<br>
+          Под <code>SKU-base_a</code> — имя просто равно имени материала, без добавок.<br>
           <code style="color:var(--col-sgeo);">SKU-…-metal_a</code> (нет суффикса, нет G)
         </div>
       </div>
@@ -509,48 +509,48 @@ code { font-family: Consolas, monospace; font-size: .9em; }
     <div class="tree-line"><span class="tree-prefix"></span><span class="tree-name n-root">SKU-CLIENT-CAR_SEAT-SR</span><span class="tree-comment">← корень = имя сцены</span></div>
     <div class="tree-line"><span class="tree-prefix">│</span></div>
 
-    <!-- base_a -->
+    <!-- SKU-base_a -->
     <div class="tree-node">
       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-        <span class="tree-prefix">└── </span><span class="tree-name n-base">base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← неподвижная основа</span>
+        <span class="tree-prefix">└── </span><span class="tree-name n-base">SKU-base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← неподвижная основа</span>
       </div>
       <div class="tree-kids">
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span class="tree-comment">← неподвижная геометрия</span></div>
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_a</span></div>
         <div class="tree-line"><span class="tree-prefix">    │</span></div>
 
-        <!-- slide_a00H -->
+        <!-- SKU-slide_a00H -->
         <div class="tree-node">
           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a: слайдер вперёд-назад</span>
+            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">SKU-slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a: слайдер вперёд-назад</span>
           </div>
           <div class="tree-kids">
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        │</span></div>
 
-            <!-- lift_b00a00H -->
+            <!-- SKU-lift_b00a00H -->
             <div class="tree-node">
               <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b: подъём, родитель a00</span>
+                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">SKU-lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b: подъём, родитель a00</span>
               </div>
               <div class="tree-kids">
                 <div class="tree-line"><span class="tree-prefix">            ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_ab00a00G</span></div>
                 <div class="tree-line"><span class="tree-prefix">            │</span></div>
 
-                <!-- seat_pan_c00b00H -->
+                <!-- SKU-seat_pan_c00b00H -->
                 <div class="tree-node">
                   <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c: наклон подушки, родитель b00</span>
+                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">SKU-seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c: наклон подушки, родитель b00</span>
                   </div>
                   <div class="tree-kids">
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ac00b00G</span></div>
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ac00b00G</span></div>
 
-                    <!-- armrest_d01c00H -->
+                    <!-- SKU-armrest_d01c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №01</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №01</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad01c00G</span></div>
@@ -558,10 +558,10 @@ code { font-family: Consolas, monospace; font-size: .9em; }
                       </div>
                     </div>
 
-                    <!-- armrest_d02c00H -->
+                    <!-- SKU-armrest_d02c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №02</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №02</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad02c00G</span></div>
@@ -569,19 +569,19 @@ code { font-family: Consolas, monospace; font-size: .9em; }
                       </div>
                     </div>
 
-                    <!-- backrest_e00c00H -->
+                    <!-- SKU-backrest_e00c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e: наклон спинки</span>
+                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">SKU-backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e: наклон спинки</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ae00c00G</span></div>
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ae00c00G</span></div>
 
-                        <!-- headrest_f00e00H -->
+                        <!-- SKU-headrest_f00e00H -->
                         <div class="tree-node">
                           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f: высота подголовника</span>
+                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">SKU-headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f: высота подголовника</span>
                           </div>
                           <div class="tree-kids">
                             <div class="tree-line"><span class="tree-prefix">                        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_af00e00G</span></div>
@@ -605,7 +605,7 @@ code { font-family: Consolas, monospace; font-size: .9em; }
 
   <div style="display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; flex-shrink:0; align-items:center; font-size:1.02em;">
     <span style="color:var(--col-root);">■</span><span style="color:var(--dim);">корень</span>
-    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">base_a</span>
+    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">SKU-base_a</span>
     <span style="color:var(--col-helper);">■</span><span style="color:var(--dim);">подвижный хелпер …H</span>
     <span style="color:var(--col-sgeo);">■</span><span style="color:var(--dim);">неподвижная геометрия</span>
     <span style="color:var(--col-dgeo);">■</span><span style="color:var(--dim);">подвижная геометрия …G</span>
@@ -650,11 +650,11 @@ code { font-family: Consolas, monospace; font-size: .9em; }
       <div>
         <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Текстуры — по материалу, не по геометрии</div>
         <div class="code-block" style="font-size:0.94em; line-height:2.1;">
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span>
+          <div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span></div>
+          <div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span></div>
+          <div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span></div>
+          <div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span></div>
+          <div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span></div>
         </div>
       </div>
 
@@ -705,11 +705,11 @@ code { font-family: Consolas, monospace; font-size: .9em; }
     <div class="card fix-step" style="border-color:rgba(63,145,205,.3);">
       <div class="fix-step-num" style="color:var(--col-base);">0</div>
       <div>
-        <div style="font-weight:600; margin-bottom:4px;">Создание base_a</div>
-        <div style="color:var(--dim); font-size:1em;">Если base_a отсутствует — создаётся. Геометрия, висящая прямо под корневым хелпером, перемещается под base_a.</div>
+        <div style="font-weight:600; margin-bottom:4px;">Создание SKU-base_a</div>
+        <div style="color:var(--dim); font-size:1em;">Если SKU-base_a отсутствует — создаётся. Геометрия, висящая прямо под корневым хелпером, перемещается под SKU-base_a.</div>
       </div>
       <div style="font-family:Consolas; font-size:0.98em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-sgeo);">geo</span> под корнем<br>→ <span style="color:var(--col-base);">base_a</span>
+        <span style="color:var(--col-sgeo);">geo</span> под корнем<br>→ <span style="color:var(--col-base);">SKU-base_a</span>
       </div>
     </div>
 
@@ -719,8 +719,8 @@ code { font-family: Consolas, monospace; font-size: .9em; }
         <div style="font-weight:600; margin-bottom:4px;">Суффиксы хелперов</div>
         <div style="color:var(--dim); font-size:1em;">Название (<code>slide</code>, <code>armrest</code>…) сохраняется, суффикс полностью пересчитывается по структуре дерева: буквы, номера, ссылки на родителей.</div>
       </div>
-      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">armrest_d01c00H</span>
+      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right; white-space:nowrap;">
+        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>
       </div>
     </div>
 
@@ -838,7 +838,7 @@ const i18nSlides = {
 
     <div style="margin-top:44px; display:flex; gap:10px; flex-wrap:wrap;">
       <span class="tag tag-root">Корневой хелпер</span>
-      <span class="tag tag-base">base_a</span>
+      <span class="tag tag-base">SKU-base_a</span>
       <span class="tag tag-helper">Подвижный хелпер</span>
       <span class="tag tag-sgeo">Неподвижная геометрия</span>
       <span class="tag tag-dgeo">Подвижная геометрия</span>
@@ -922,15 +922,15 @@ const i18nSlides = {
 
     <div class="card" style="border-left:4px solid var(--col-base); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-base">Статичный хелпер</span></div>
-      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">base_a</div>
+      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">SKU-base_a</div>
       <div style="color:var(--dim); font-size:1.02em;">Обязательный первый дочерний хелпер корня. Контейнер неподвижной геометрии и стартовая точка всей динамики.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-helper); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-helper">Подвижный хелпер</span></div>
       <div style="font-family:Consolas; font-size:1.02em;">
-        <div style="color:var(--col-helper);">slide_a00H</div>
-        <div style="color:var(--col-helper);">lift_b00a00H</div>
+        <div style="color:var(--col-helper);">SKU-slide_a00H</div>
+        <div style="color:var(--col-helper);">SKU-lift_b00a00H</div>
       </div>
       <div style="color:var(--dim); font-size:1.02em;">Ось движения для одной детали. Содержит букву типа, номер экземпляра и ссылку на родителя. <code>H</code> на конце — маркер (подробнее на след. слайде).</div>
     </div>
@@ -938,7 +938,7 @@ const i18nSlides = {
     <div class="card" style="border-left:4px solid var(--col-sgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-sgeo">Неподвижная геометрия</span></div>
       <div style="font-family:Consolas; font-size:1.02em; color:var(--col-sgeo);">SKU-…-metal_a</div>
-      <div style="color:var(--dim); font-size:1.02em;">Живёт под <code>base_a</code>. Имя совпадает с именем материала — один к одному.</div>
+      <div style="color:var(--dim); font-size:1.02em;">Живёт под <code>SKU-base_a</code>. Имя совпадает с именем материала — один к одному.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-dgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
@@ -960,7 +960,7 @@ const i18nSlides = {
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Уровень 1 — прямо под base_a, родитель неподвижный:
+    Уровень 1 — прямо под SKU-base_a, родитель неподвижный:
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">slide</div><div class="fp-label">название элемента</div></div>
@@ -974,7 +974,7 @@ const i18nSlides = {
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Уровень 2 — внутри slide_a00H, родитель подвижный:
+    Уровень 2 — внутри SKU-slide_a00H, родитель подвижный:
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">lift</div><div class="fp-label">название элемента</div></div>
@@ -1010,7 +1010,7 @@ const i18nSlides = {
       <div style="color:var(--dim); font-size:1em; line-height:1.65;">
         Только <strong style="color:var(--text);">прямой</strong> подвижный родитель:
         его буква + номер.<br>
-        Если родитель — <code>base_a</code>, этот блок не нужен.
+        Если родитель — <code>SKU-base_a</code>, этот блок не нужен.
       </div>
     </div>
 
@@ -1021,7 +1021,7 @@ const i18nSlides = {
     <div style="color:var(--dim); font-size:1.02em; line-height:1.7;">
       Существующие проверки распознают копии объектов по числовому окончанию — <code>_01</code>, <code>_02</code>…
       Буква <code>H</code> на конце предотвращает ложное срабатывание проверки:
-      <code>slide_a00H</code> не выглядит как копия <code>slide_a</code>.
+      <code>SKU-slide_a00H</code> не выглядит как копия <code>slide_a</code>.
     </div>
   </div>
 </div>
@@ -1049,13 +1049,13 @@ const i18nSlides = {
 
     <div>
       <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Примеры</div>
-      <div class="code-block" style="font-size:0.94em; line-height:2.2;">
-<span style="color:var(--dim);">Хелпер            Материал      Геометрия</span>
-<span style="color:var(--col-helper);">slide_a00H</span>      <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span>
-<span style="color:var(--col-helper);">lift_b00a00H</span>   <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span>
-<span style="color:var(--col-helper);">seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span>
-<span style="color:var(--col-helper);">armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span>
-<span style="color:var(--col-helper);">headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span>
+      <div class="code-block" style="font-size:0.94em; line-height:2.2; overflow-x:auto;">
+<div style="white-space:nowrap;"><span style="color:var(--dim);">Хелпер                   Материал       Геометрия</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-slide_a00H</span>       <span style="color:var(--col-mat);">metal_a</span>    →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-lift_b00a00H</span>     <span style="color:var(--col-mat);">metal_a</span>    →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span></div>
       </div>
 
       <div class="panel" style="margin-top:14px; border-color:rgba(181,101,213,.25);">
@@ -1080,13 +1080,13 @@ const i18nSlides = {
         <div style="color:var(--col-dgeo); font-weight:600; margin-bottom:6px;">Суффикс хелпера без H</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
           Часть имени хелпера после последнего <code>_</code> , без финального <code>H</code>.<br>
-          Из <code style="color:var(--col-helper);">lift_b00a00H</code> берём <code style="color:var(--col-dgeo);">b00a00</code>.
+          Из <code style="color:var(--col-helper);">SKU-lift_b00a00H</code> берём <code style="color:var(--col-dgeo);">b00a00</code>.
         </div>
       </div>
       <div class="panel">
         <div style="font-weight:600; margin-bottom:6px;">Неподвижная геометрия</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
-          Под <code>base_a</code> — имя просто равно имени материала, без добавок.<br>
+          Под <code>SKU-base_a</code> — имя просто равно имени материала, без добавок.<br>
           <code style="color:var(--col-sgeo);">SKU-…-metal_a</code> (нет суффикса, нет G)
         </div>
       </div>
@@ -1108,48 +1108,48 @@ const i18nSlides = {
     <div class="tree-line"><span class="tree-prefix"></span><span class="tree-name n-root">SKU-CLIENT-CAR_SEAT-SR</span><span class="tree-comment">← корень = имя сцены</span></div>
     <div class="tree-line"><span class="tree-prefix">│</span></div>
 
-    <!-- base_a -->
+    <!-- SKU-base_a -->
     <div class="tree-node">
       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-        <span class="tree-prefix">└── </span><span class="tree-name n-base">base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← неподвижная основа</span>
+        <span class="tree-prefix">└── </span><span class="tree-name n-base">SKU-base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← неподвижная основа</span>
       </div>
       <div class="tree-kids">
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span class="tree-comment">← неподвижная геометрия</span></div>
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_a</span></div>
         <div class="tree-line"><span class="tree-prefix">    │</span></div>
 
-        <!-- slide_a00H -->
+        <!-- SKU-slide_a00H -->
         <div class="tree-node">
           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a: слайдер вперёд-назад</span>
+            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">SKU-slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a: слайдер вперёд-назад</span>
           </div>
           <div class="tree-kids">
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        │</span></div>
 
-            <!-- lift_b00a00H -->
+            <!-- SKU-lift_b00a00H -->
             <div class="tree-node">
               <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b: подъём, родитель a00</span>
+                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">SKU-lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b: подъём, родитель a00</span>
               </div>
               <div class="tree-kids">
                 <div class="tree-line"><span class="tree-prefix">            ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_ab00a00G</span></div>
                 <div class="tree-line"><span class="tree-prefix">            │</span></div>
 
-                <!-- seat_pan_c00b00H -->
+                <!-- SKU-seat_pan_c00b00H -->
                 <div class="tree-node">
                   <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c: наклон подушки, родитель b00</span>
+                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">SKU-seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c: наклон подушки, родитель b00</span>
                   </div>
                   <div class="tree-kids">
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ac00b00G</span></div>
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ac00b00G</span></div>
 
-                    <!-- armrest_d01c00H -->
+                    <!-- SKU-armrest_d01c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №01</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №01</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad01c00G</span></div>
@@ -1157,10 +1157,10 @@ const i18nSlides = {
                       </div>
                     </div>
 
-                    <!-- armrest_d02c00H -->
+                    <!-- SKU-armrest_d02c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №02</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №02</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad02c00G</span></div>
@@ -1168,19 +1168,19 @@ const i18nSlides = {
                       </div>
                     </div>
 
-                    <!-- backrest_e00c00H -->
+                    <!-- SKU-backrest_e00c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e: наклон спинки</span>
+                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">SKU-backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e: наклон спинки</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ae00c00G</span></div>
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ae00c00G</span></div>
 
-                        <!-- headrest_f00e00H -->
+                        <!-- SKU-headrest_f00e00H -->
                         <div class="tree-node">
                           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f: высота подголовника</span>
+                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">SKU-headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f: высота подголовника</span>
                           </div>
                           <div class="tree-kids">
                             <div class="tree-line"><span class="tree-prefix">                        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_af00e00G</span></div>
@@ -1204,7 +1204,7 @@ const i18nSlides = {
 
   <div style="display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; flex-shrink:0; align-items:center; font-size:1.02em;">
     <span style="color:var(--col-root);">■</span><span style="color:var(--dim);">корень</span>
-    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">base_a</span>
+    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">SKU-base_a</span>
     <span style="color:var(--col-helper);">■</span><span style="color:var(--dim);">подвижный хелпер …H</span>
     <span style="color:var(--col-sgeo);">■</span><span style="color:var(--dim);">неподвижная геометрия</span>
     <span style="color:var(--col-dgeo);">■</span><span style="color:var(--dim);">подвижная геометрия …G</span>
@@ -1249,11 +1249,11 @@ const i18nSlides = {
       <div>
         <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Текстуры — по материалу, не по геометрии</div>
         <div class="code-block" style="font-size:0.94em; line-height:2.1;">
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span></div>
         </div>
       </div>
 
@@ -1304,11 +1304,11 @@ const i18nSlides = {
     <div class="card fix-step" style="border-color:rgba(63,145,205,.3);">
       <div class="fix-step-num" style="color:var(--col-base);">0</div>
       <div>
-        <div style="font-weight:600; margin-bottom:4px;">Создание base_a</div>
-        <div style="color:var(--dim); font-size:1em;">Если base_a отсутствует — создаётся. Геометрия, висящая прямо под корневым хелпером, перемещается под base_a.</div>
+        <div style="font-weight:600; margin-bottom:4px;">Создание SKU-base_a</div>
+        <div style="color:var(--dim); font-size:1em;">Если SKU-base_a отсутствует — создаётся. Геометрия, висящая прямо под корневым хелпером, перемещается под SKU-base_a.</div>
       </div>
       <div style="font-family:Consolas; font-size:0.98em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-sgeo);">geo</span> под корнем<br>→ <span style="color:var(--col-base);">base_a</span>
+        <span style="color:var(--col-sgeo);">geo</span> под корнем<br>→ <span style="color:var(--col-base);">SKU-base_a</span>
       </div>
     </div>
 
@@ -1318,8 +1318,8 @@ const i18nSlides = {
         <div style="font-weight:600; margin-bottom:4px;">Суффиксы хелперов</div>
         <div style="color:var(--dim); font-size:1em;">Название (<code>slide</code>, <code>armrest</code>…) сохраняется, суффикс полностью пересчитывается по структуре дерева: буквы, номера, ссылки на родителей.</div>
       </div>
-      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">armrest_d01c00H</span>
+      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right; white-space:nowrap;">
+        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>
       </div>
     </div>
 
@@ -1383,7 +1383,7 @@ const i18nSlides = {
 
     <div style="margin-top:44px; display:flex; gap:10px; flex-wrap:wrap;">
       <span class="tag tag-root">Root helper</span>
-      <span class="tag tag-base">base_a</span>
+      <span class="tag tag-base">SKU-base_a</span>
       <span class="tag tag-helper">Dynamic helper</span>
       <span class="tag tag-sgeo">Static geometry</span>
       <span class="tag tag-dgeo">Dynamic geometry</span>
@@ -1467,15 +1467,15 @@ const i18nSlides = {
 
     <div class="card" style="border-left:4px solid var(--col-base); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-base">Static helper</span></div>
-      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">base_a</div>
+      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">SKU-base_a</div>
       <div style="color:var(--dim); font-size:1.02em;">Mandatory first child helper of the root. Container for static geometry and starting point of all dynamics.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-helper); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-helper">Dynamic helper</span></div>
       <div style="font-family:Consolas; font-size:1.02em;">
-        <div style="color:var(--col-helper);">slide_a00H</div>
-        <div style="color:var(--col-helper);">lift_b00a00H</div>
+        <div style="color:var(--col-helper);">SKU-slide_a00H</div>
+        <div style="color:var(--col-helper);">SKU-lift_b00a00H</div>
       </div>
       <div style="color:var(--dim); font-size:1.02em;">Movement axis for one part. Contains a type letter, instance number and parent reference. <code>H</code> at the end — marker (details on next slide).</div>
     </div>
@@ -1483,7 +1483,7 @@ const i18nSlides = {
     <div class="card" style="border-left:4px solid var(--col-sgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-sgeo">Static geometry</span></div>
       <div style="font-family:Consolas; font-size:1.02em; color:var(--col-sgeo);">SKU-…-metal_a</div>
-      <div style="color:var(--dim); font-size:1.02em;">Lives under <code>base_a</code>. Name equals the material name — one to one.</div>
+      <div style="color:var(--dim); font-size:1.02em;">Lives under <code>SKU-base_a</code>. Name equals the material name — one to one.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-dgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
@@ -1505,7 +1505,7 @@ const i18nSlides = {
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Level 1 — directly under base_a, parent is static:
+    Level 1 — directly under SKU-base_a, parent is static:
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">slide</div><div class="fp-label">element name</div></div>
@@ -1519,7 +1519,7 @@ const i18nSlides = {
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Level 2 — inside slide_a00H, parent is dynamic:
+    Level 2 — inside SKU-slide_a00H, parent is dynamic:
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">lift</div><div class="fp-label">element name</div></div>
@@ -1555,7 +1555,7 @@ const i18nSlides = {
       <div style="color:var(--dim); font-size:1em; line-height:1.65;">
         Only the <strong style="color:var(--text);">direct</strong> dynamic parent:
         its letter + number.<br>
-        If the parent is <code>base_a</code>, this block is omitted.
+        If the parent is <code>SKU-base_a</code>, this block is omitted.
       </div>
     </div>
 
@@ -1566,7 +1566,7 @@ const i18nSlides = {
     <div style="color:var(--dim); font-size:1.02em; line-height:1.7;">
       Existing checks detect object copies by numeric ending — <code>_01</code>, <code>_02</code>…
       The letter <code>H</code> at the end prevents false positives:
-      <code>slide_a00H</code> does not look like a copy of <code>slide_a</code>.
+      <code>SKU-slide_a00H</code> does not look like a copy of <code>slide_a</code>.
     </div>
   </div>
 </div>
@@ -1594,13 +1594,13 @@ const i18nSlides = {
 
     <div>
       <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Examples</div>
-      <div class="code-block" style="font-size:0.94em; line-height:2.2;">
-<span style="color:var(--dim);">Helper             Material      Geometry</span>
-<span style="color:var(--col-helper);">slide_a00H</span>      <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span>
-<span style="color:var(--col-helper);">lift_b00a00H</span>   <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span>
-<span style="color:var(--col-helper);">seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span>
-<span style="color:var(--col-helper);">armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span>
-<span style="color:var(--col-helper);">headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span>
+      <div class="code-block" style="font-size:0.94em; line-height:2.2; overflow-x:auto;">
+<div style="white-space:nowrap;"><span style="color:var(--dim);">Helper                   Material       Geometry</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-slide_a00H</span>       <span style="color:var(--col-mat);">metal_a</span>    →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-lift_b00a00H</span>     <span style="color:var(--col-mat);">metal_a</span>    →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span></div>
       </div>
 
       <div class="panel" style="margin-top:14px; border-color:rgba(181,101,213,.25);">
@@ -1625,13 +1625,13 @@ const i18nSlides = {
         <div style="color:var(--col-dgeo); font-weight:600; margin-bottom:6px;">Helper suffix w/o H</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
           Part of the helper name after the last <code>_</code>, without the final <code>H</code>.<br>
-          From <code style="color:var(--col-helper);">lift_b00a00H</code> we take <code style="color:var(--col-dgeo);">b00a00</code>.
+          From <code style="color:var(--col-helper);">SKU-lift_b00a00H</code> we take <code style="color:var(--col-dgeo);">b00a00</code>.
         </div>
       </div>
       <div class="panel">
         <div style="font-weight:600; margin-bottom:6px;">Static geometry</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
-          Under <code>base_a</code> — name simply equals the material name, no additions.<br>
+          Under <code>SKU-base_a</code> — name simply equals the material name, no additions.<br>
           <code style="color:var(--col-sgeo);">SKU-…-metal_a</code> (no suffix, no G)
         </div>
       </div>
@@ -1653,48 +1653,48 @@ const i18nSlides = {
     <div class="tree-line"><span class="tree-prefix"></span><span class="tree-name n-root">SKU-CLIENT-CAR_SEAT-SR</span><span class="tree-comment">← root = scene name</span></div>
     <div class="tree-line"><span class="tree-prefix">│</span></div>
 
-    <!-- base_a -->
+    <!-- SKU-base_a -->
     <div class="tree-node">
       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-        <span class="tree-prefix">└── </span><span class="tree-name n-base">base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← static base</span>
+        <span class="tree-prefix">└── </span><span class="tree-name n-base">SKU-base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← static base</span>
       </div>
       <div class="tree-kids">
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span class="tree-comment">← static geometry</span></div>
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_a</span></div>
         <div class="tree-line"><span class="tree-prefix">    │</span></div>
 
-        <!-- slide_a00H -->
+        <!-- SKU-slide_a00H -->
         <div class="tree-node">
           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a: slider fwd-back</span>
+            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">SKU-slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a: slider fwd-back</span>
           </div>
           <div class="tree-kids">
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        │</span></div>
 
-            <!-- lift_b00a00H -->
+            <!-- SKU-lift_b00a00H -->
             <div class="tree-node">
               <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b: lift, parent a00</span>
+                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">SKU-lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b: lift, parent a00</span>
               </div>
               <div class="tree-kids">
                 <div class="tree-line"><span class="tree-prefix">            ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_ab00a00G</span></div>
                 <div class="tree-line"><span class="tree-prefix">            │</span></div>
 
-                <!-- seat_pan_c00b00H -->
+                <!-- SKU-seat_pan_c00b00H -->
                 <div class="tree-node">
                   <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c: seat tilt, parent b00</span>
+                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">SKU-seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c: seat tilt, parent b00</span>
                   </div>
                   <div class="tree-kids">
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ac00b00G</span></div>
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ac00b00G</span></div>
 
-                    <!-- armrest_d01c00H -->
+                    <!-- SKU-armrest_d01c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: armrest #01</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: armrest #01</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad01c00G</span></div>
@@ -1702,10 +1702,10 @@ const i18nSlides = {
                       </div>
                     </div>
 
-                    <!-- armrest_d02c00H -->
+                    <!-- SKU-armrest_d02c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: armrest #02</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: armrest #02</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad02c00G</span></div>
@@ -1713,19 +1713,19 @@ const i18nSlides = {
                       </div>
                     </div>
 
-                    <!-- backrest_e00c00H -->
+                    <!-- SKU-backrest_e00c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e: backrest tilt</span>
+                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">SKU-backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e: backrest tilt</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ae00c00G</span></div>
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ae00c00G</span></div>
 
-                        <!-- headrest_f00e00H -->
+                        <!-- SKU-headrest_f00e00H -->
                         <div class="tree-node">
                           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f: headrest height</span>
+                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">SKU-headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f: headrest height</span>
                           </div>
                           <div class="tree-kids">
                             <div class="tree-line"><span class="tree-prefix">                        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_af00e00G</span></div>
@@ -1749,7 +1749,7 @@ const i18nSlides = {
 
   <div style="display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; flex-shrink:0; align-items:center; font-size:1.02em;">
     <span style="color:var(--col-root);">■</span><span style="color:var(--dim);">root</span>
-    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">base_a</span>
+    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">SKU-base_a</span>
     <span style="color:var(--col-helper);">■</span><span style="color:var(--dim);">dynamic helper …H</span>
     <span style="color:var(--col-sgeo);">■</span><span style="color:var(--dim);">static geometry</span>
     <span style="color:var(--col-dgeo);">■</span><span style="color:var(--dim);">dynamic geometry …G</span>
@@ -1794,11 +1794,11 @@ const i18nSlides = {
       <div>
         <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Textures — by material, not by geometry</div>
         <div class="code-block" style="font-size:0.94em; line-height:2.1;">
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span></div>
         </div>
       </div>
 
@@ -1849,11 +1849,11 @@ const i18nSlides = {
     <div class="card fix-step" style="border-color:rgba(63,145,205,.3);">
       <div class="fix-step-num" style="color:var(--col-base);">0</div>
       <div>
-        <div style="font-weight:600; margin-bottom:4px;">Create base_a</div>
-        <div style="color:var(--dim); font-size:1em;">If base_a is missing — it is created. Geometry hanging directly under the root helper is moved under base_a.</div>
+        <div style="font-weight:600; margin-bottom:4px;">Create SKU-base_a</div>
+        <div style="color:var(--dim); font-size:1em;">If SKU-base_a is missing — it is created. Geometry hanging directly under the root helper is moved under SKU-base_a.</div>
       </div>
       <div style="font-family:Consolas; font-size:0.98em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-sgeo);">geo</span> under root<br>→ <span style="color:var(--col-base);">base_a</span>
+        <span style="color:var(--col-sgeo);">geo</span> under root<br>→ <span style="color:var(--col-base);">SKU-base_a</span>
       </div>
     </div>
 
@@ -1863,8 +1863,8 @@ const i18nSlides = {
         <div style="font-weight:600; margin-bottom:4px;">Helper suffixes</div>
         <div style="color:var(--dim); font-size:1em;">The name (<code>slide</code>, <code>armrest</code>…) is preserved, the suffix is fully recalculated from the tree structure: letters, numbers, parent references.</div>
       </div>
-      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">armrest_d01c00H</span>
+      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right; white-space:nowrap;">
+        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>
       </div>
     </div>
 
@@ -1928,7 +1928,7 @@ const i18nSlides = {
 
     <div style="margin-top:44px; display:flex; gap:10px; flex-wrap:wrap;">
       <span class="tag tag-root">Helper racine</span>
-      <span class="tag tag-base">base_a</span>
+      <span class="tag tag-base">SKU-base_a</span>
       <span class="tag tag-helper">Helper dynamique</span>
       <span class="tag tag-sgeo">Géométrie statique</span>
       <span class="tag tag-dgeo">Géométrie dynamique</span>
@@ -2012,15 +2012,15 @@ const i18nSlides = {
 
     <div class="card" style="border-left:4px solid var(--col-base); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-base">Helper statique</span></div>
-      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">base_a</div>
+      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">SKU-base_a</div>
       <div style="color:var(--dim); font-size:1.02em;">Premier helper enfant obligatoire de la racine. Conteneur de géométrie statique et point de départ de toute la dynamique.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-helper); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-helper">Helper dynamique</span></div>
       <div style="font-family:Consolas; font-size:1.02em;">
-        <div style="color:var(--col-helper);">slide_a00H</div>
-        <div style="color:var(--col-helper);">lift_b00a00H</div>
+        <div style="color:var(--col-helper);">SKU-slide_a00H</div>
+        <div style="color:var(--col-helper);">SKU-lift_b00a00H</div>
       </div>
       <div style="color:var(--dim); font-size:1.02em;">Axe de mouvement d'une pièce. Contient une lettre de type, un numéro d'instance et une référence au parent. <code>H</code> en fin — marqueur (détails sur la diapo suivante).</div>
     </div>
@@ -2028,7 +2028,7 @@ const i18nSlides = {
     <div class="card" style="border-left:4px solid var(--col-sgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-sgeo">Géométrie statique</span></div>
       <div style="font-family:Consolas; font-size:1.02em; color:var(--col-sgeo);">SKU-…-metal_a</div>
-      <div style="color:var(--dim); font-size:1.02em;">Réside sous <code>base_a</code>. Le nom correspond exactement au nom du matériau.</div>
+      <div style="color:var(--dim); font-size:1.02em;">Réside sous <code>SKU-base_a</code>. Le nom correspond exactement au nom du matériau.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-dgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
@@ -2050,7 +2050,7 @@ const i18nSlides = {
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Niveau 1 — directement sous base_a, parent statique :
+    Niveau 1 — directement sous SKU-base_a, parent statique :
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">slide</div><div class="fp-label">nom d'élément</div></div>
@@ -2064,7 +2064,7 @@ const i18nSlides = {
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Niveau 2 — dans slide_a00H, parent dynamique :
+    Niveau 2 — dans SKU-slide_a00H, parent dynamique :
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">lift</div><div class="fp-label">nom d'élément</div></div>
@@ -2100,7 +2100,7 @@ const i18nSlides = {
       <div style="color:var(--dim); font-size:1em; line-height:1.65;">
         Uniquement le <strong style="color:var(--text);">parent direct</strong> dynamique :
         sa lettre + numéro.<br>
-        Si le parent est <code>base_a</code>, ce bloc est omis.
+        Si le parent est <code>SKU-base_a</code>, ce bloc est omis.
       </div>
     </div>
 
@@ -2111,7 +2111,7 @@ const i18nSlides = {
     <div style="color:var(--dim); font-size:1.02em; line-height:1.7;">
       Les vérifications existantes détectent les copies par terminaison numérique — <code>_01</code>, <code>_02</code>…
       La lettre <code>H</code> en fin empêche les faux positifs :
-      <code>slide_a00H</code> ne ressemble pas à une copie de <code>slide_a</code>.
+      <code>SKU-slide_a00H</code> ne ressemble pas à une copie de <code>slide_a</code>.
     </div>
   </div>
 </div>
@@ -2139,13 +2139,13 @@ const i18nSlides = {
 
     <div>
       <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Exemples</div>
-      <div class="code-block" style="font-size:0.94em; line-height:2.2;">
-<span style="color:var(--dim);">Helper             Matériau      Géométrie</span>
-<span style="color:var(--col-helper);">slide_a00H</span>      <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span>
-<span style="color:var(--col-helper);">lift_b00a00H</span>   <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span>
-<span style="color:var(--col-helper);">seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span>
-<span style="color:var(--col-helper);">armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span>
-<span style="color:var(--col-helper);">headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span>
+      <div class="code-block" style="font-size:0.94em; line-height:2.2; overflow-x:auto;">
+<div style="white-space:nowrap;"><span style="color:var(--dim);">Helper                   Matériau       Géométrie</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-slide_a00H</span>       <span style="color:var(--col-mat);">metal_a</span>    →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-lift_b00a00H</span>     <span style="color:var(--col-mat);">metal_a</span>    →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span></div>
+<div style="white-space:nowrap;"><span style="color:var(--col-helper);">SKU-headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span></div>
       </div>
 
       <div class="panel" style="margin-top:14px; border-color:rgba(181,101,213,.25);">
@@ -2170,13 +2170,13 @@ const i18nSlides = {
         <div style="color:var(--col-dgeo); font-weight:600; margin-bottom:6px;">Suffixe helper sans H</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
           Partie du nom helper après le dernier <code>_</code>, sans le <code>H</code> final.<br>
-          De <code style="color:var(--col-helper);">lift_b00a00H</code> on prend <code style="color:var(--col-dgeo);">b00a00</code>.
+          De <code style="color:var(--col-helper);">SKU-lift_b00a00H</code> on prend <code style="color:var(--col-dgeo);">b00a00</code>.
         </div>
       </div>
       <div class="panel">
         <div style="font-weight:600; margin-bottom:6px;">Géométrie statique</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
-          Sous <code>base_a</code> — le nom est simplement égal au nom du matériau, sans ajout.<br>
+          Sous <code>SKU-base_a</code> — le nom est simplement égal au nom du matériau, sans ajout.<br>
           <code style="color:var(--col-sgeo);">SKU-…-metal_a</code> (pas de suffixe, pas de G)
         </div>
       </div>
@@ -2198,48 +2198,48 @@ const i18nSlides = {
     <div class="tree-line"><span class="tree-prefix"></span><span class="tree-name n-root">SKU-CLIENT-CAR_SEAT-SR</span><span class="tree-comment">← racine = nom de scène</span></div>
     <div class="tree-line"><span class="tree-prefix">│</span></div>
 
-    <!-- base_a -->
+    <!-- SKU-base_a -->
     <div class="tree-node">
       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-        <span class="tree-prefix">└── </span><span class="tree-name n-base">base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← base statique</span>
+        <span class="tree-prefix">└── </span><span class="tree-name n-base">SKU-base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← base statique</span>
       </div>
       <div class="tree-kids">
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span class="tree-comment">← géométrie statique</span></div>
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_a</span></div>
         <div class="tree-line"><span class="tree-prefix">    │</span></div>
 
-        <!-- slide_a00H -->
+        <!-- SKU-slide_a00H -->
         <div class="tree-node">
           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a : glissière av-ar</span>
+            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">SKU-slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a : glissière av-ar</span>
           </div>
           <div class="tree-kids">
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        │</span></div>
 
-            <!-- lift_b00a00H -->
+            <!-- SKU-lift_b00a00H -->
             <div class="tree-node">
               <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b : lift, parent a00</span>
+                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">SKU-lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b : lift, parent a00</span>
               </div>
               <div class="tree-kids">
                 <div class="tree-line"><span class="tree-prefix">            ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_ab00a00G</span></div>
                 <div class="tree-line"><span class="tree-prefix">            │</span></div>
 
-                <!-- seat_pan_c00b00H -->
+                <!-- SKU-seat_pan_c00b00H -->
                 <div class="tree-node">
                   <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c : inclinaison assise, parent b00</span>
+                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">SKU-seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c : inclinaison assise, parent b00</span>
                   </div>
                   <div class="tree-kids">
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ac00b00G</span></div>
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ac00b00G</span></div>
 
-                    <!-- armrest_d01c00H -->
+                    <!-- SKU-armrest_d01c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d : accoudoir #01</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d : accoudoir #01</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad01c00G</span></div>
@@ -2247,10 +2247,10 @@ const i18nSlides = {
                       </div>
                     </div>
 
-                    <!-- armrest_d02c00H -->
+                    <!-- SKU-armrest_d02c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d : accoudoir #02</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d : accoudoir #02</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad02c00G</span></div>
@@ -2258,19 +2258,19 @@ const i18nSlides = {
                       </div>
                     </div>
 
-                    <!-- backrest_e00c00H -->
+                    <!-- SKU-backrest_e00c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e : inclinaison dossier</span>
+                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">SKU-backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e : inclinaison dossier</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ae00c00G</span></div>
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ae00c00G</span></div>
 
-                        <!-- headrest_f00e00H -->
+                        <!-- SKU-headrest_f00e00H -->
                         <div class="tree-node">
                           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f : hauteur appuie-tête</span>
+                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">SKU-headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f : hauteur appuie-tête</span>
                           </div>
                           <div class="tree-kids">
                             <div class="tree-line"><span class="tree-prefix">                        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_af00e00G</span></div>
@@ -2294,7 +2294,7 @@ const i18nSlides = {
 
   <div style="display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; flex-shrink:0; align-items:center; font-size:1.02em;">
     <span style="color:var(--col-root);">■</span><span style="color:var(--dim);">racine</span>
-    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">base_a</span>
+    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">SKU-base_a</span>
     <span style="color:var(--col-helper);">■</span><span style="color:var(--dim);">helper dynamique …H</span>
     <span style="color:var(--col-sgeo);">■</span><span style="color:var(--dim);">géométrie statique</span>
     <span style="color:var(--col-dgeo);">■</span><span style="color:var(--dim);">géométrie dynamique …G</span>
@@ -2339,11 +2339,11 @@ const i18nSlides = {
       <div>
         <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Textures — par matériau, pas par géométrie</div>
         <div class="code-block" style="font-size:0.94em; line-height:2.1;">
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span></div>
         </div>
       </div>
 
@@ -2394,11 +2394,11 @@ const i18nSlides = {
     <div class="card fix-step" style="border-color:rgba(63,145,205,.3);">
       <div class="fix-step-num" style="color:var(--col-base);">0</div>
       <div>
-        <div style="font-weight:600; margin-bottom:4px;">Création de base_a</div>
-        <div style="color:var(--dim); font-size:1em;">Si base_a est absent — il est créé. La géométrie suspendue directement sous le helper racine est déplacée sous base_a.</div>
+        <div style="font-weight:600; margin-bottom:4px;">Création de SKU-base_a</div>
+        <div style="color:var(--dim); font-size:1em;">Si SKU-base_a est absent — il est créé. La géométrie suspendue directement sous le helper racine est déplacée sous SKU-base_a.</div>
       </div>
       <div style="font-family:Consolas; font-size:0.98em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-sgeo);">geo</span> sous racine<br>→ <span style="color:var(--col-base);">base_a</span>
+        <span style="color:var(--col-sgeo);">geo</span> sous racine<br>→ <span style="color:var(--col-base);">SKU-base_a</span>
       </div>
     </div>
 
@@ -2408,8 +2408,8 @@ const i18nSlides = {
         <div style="font-weight:600; margin-bottom:4px;">Suffixes des helpers</div>
         <div style="color:var(--dim); font-size:1em;">Le nom (<code>slide</code>, <code>armrest</code>…) est conservé, le suffixe est entièrement recalculé selon la structure : lettres, numéros, références aux parents.</div>
       </div>
-      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">armrest_d01c00H</span>
+      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right; white-space:nowrap;">
+        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>
       </div>
     </div>
 
@@ -2473,7 +2473,7 @@ const i18nSlides = {
 
     <div style="margin-top:44px; display:flex; gap:10px; flex-wrap:wrap;">
       <span class="tag tag-root">Кореневий хелпер</span>
-      <span class="tag tag-base">base_a</span>
+      <span class="tag tag-base">SKU-base_a</span>
       <span class="tag tag-helper">Рухомий хелпер</span>
       <span class="tag tag-sgeo">Нерухома геометрія</span>
       <span class="tag tag-dgeo">Рухома геометрія</span>
@@ -2557,15 +2557,15 @@ const i18nSlides = {
 
     <div class="card" style="border-left:4px solid var(--col-base); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-base">Статичний хелпер</span></div>
-      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">base_a</div>
+      <div style="font-family:Consolas; font-size:1.02em; color:var(--col-base);">SKU-base_a</div>
       <div style="color:var(--dim); font-size:1.02em;">Обов'язковий перший дочірній хелпер кореня. Контейнер нерухомої геометрії та стартова точка всієї динаміки.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-helper); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-helper">Рухомий хелпер</span></div>
       <div style="font-family:Consolas; font-size:1.02em;">
-        <div style="color:var(--col-helper);">slide_a00H</div>
-        <div style="color:var(--col-helper);">lift_b00a00H</div>
+        <div style="color:var(--col-helper);">SKU-slide_a00H</div>
+        <div style="color:var(--col-helper);">SKU-lift_b00a00H</div>
       </div>
       <div style="color:var(--dim); font-size:1.02em;">Вісь руху для однієї деталі. Містить букву типу, номер екземпляра та посилання на батька. <code>H</code> наприкінці — маркер (детальніше на наст. слайді).</div>
     </div>
@@ -2573,7 +2573,7 @@ const i18nSlides = {
     <div class="card" style="border-left:4px solid var(--col-sgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
       <div><span class="tag tag-sgeo">Нерухома геометрія</span></div>
       <div style="font-family:Consolas; font-size:1.02em; color:var(--col-sgeo);">SKU-…-metal_a</div>
-      <div style="color:var(--dim); font-size:1.02em;">Знаходиться під <code>base_a</code>. Ім'я збігається з ім'ям матеріалу — один до одного.</div>
+      <div style="color:var(--dim); font-size:1.02em;">Знаходиться під <code>SKU-base_a</code>. Ім'я збігається з ім'ям матеріалу — один до одного.</div>
     </div>
 
     <div class="card" style="border-left:4px solid var(--col-dgeo); display:grid; grid-template-columns:190px 1fr 1fr; align-items:center; gap:18px;">
@@ -2595,7 +2595,7 @@ const i18nSlides = {
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Рівень 1 — прямо під base_a, батько нерухомий:
+    Рівень 1 — прямо під SKU-base_a, батько нерухомий:
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">slide</div><div class="fp-label">назва елемента</div></div>
@@ -2609,7 +2609,7 @@ const i18nSlides = {
   </div>
 
   <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); margin-bottom:4px; margin-left:4px;">
-    Рівень 2 — всередині slide_a00H, батько рухомий:
+    Рівень 2 — всередині SKU-slide_a00H, батько рухомий:
   </div>
   <div class="formula" style="margin-bottom:20px;">
     <div class="fp fp-name"><div class="fp-val" style="color:var(--dim);">lift</div><div class="fp-label">назва елемента</div></div>
@@ -2645,7 +2645,7 @@ const i18nSlides = {
       <div style="color:var(--dim); font-size:1em; line-height:1.65;">
         Тільки <strong style="color:var(--text);">прямий</strong> рухомий батько:
         його буква + номер.<br>
-        Якщо батько — <code>base_a</code>, цей блок не потрібен.
+        Якщо батько — <code>SKU-base_a</code>, цей блок не потрібен.
       </div>
     </div>
 
@@ -2656,7 +2656,7 @@ const i18nSlides = {
     <div style="color:var(--dim); font-size:1.02em; line-height:1.7;">
       Існуючі перевірки розпізнають копії об'єктів за числовим закінченням — <code>_01</code>, <code>_02</code>…
       Буква <code>H</code> наприкінці запобігає хибному спрацюванню перевірки:
-      <code>slide_a00H</code> не виглядає як копія <code>slide_a</code>.
+      <code>SKU-slide_a00H</code> не виглядає як копія <code>slide_a</code>.
     </div>
   </div>
 </div>
@@ -2686,11 +2686,11 @@ const i18nSlides = {
       <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Приклади</div>
       <div class="code-block" style="font-size:0.94em; line-height:2.2;">
 <span style="color:var(--dim);">Хелпер             Матеріал      Геометрія</span>
-<span style="color:var(--col-helper);">slide_a00H</span>      <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span>
-<span style="color:var(--col-helper);">lift_b00a00H</span>   <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span>
-<span style="color:var(--col-helper);">seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span>
-<span style="color:var(--col-helper);">armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span>
-<span style="color:var(--col-helper);">headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span>
+<span style="color:var(--col-helper);">SKU-slide_a00H</span>      <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">a00G</span>
+<span style="color:var(--col-helper);">SKU-lift_b00a00H</span>   <span style="color:var(--col-mat);">metal_a</span>  →  <span style="color:var(--col-mat);">…-metal_a</span><span style="color:var(--col-dgeo);">b00a00G</span>
+<span style="color:var(--col-helper);">SKU-seat_pan_c00b00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">c00b00G</span>
+<span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>  <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">d01c00G</span>
+<span style="color:var(--col-helper);">SKU-headrest_f00e00H</span> <span style="color:var(--col-mat);">leather_a</span>  →  <span style="color:var(--col-mat);">…-leather_a</span><span style="color:var(--col-dgeo);">f00e00G</span>
       </div>
 
       <div class="panel" style="margin-top:14px; border-color:rgba(181,101,213,.25);">
@@ -2715,13 +2715,13 @@ const i18nSlides = {
         <div style="color:var(--col-dgeo); font-weight:600; margin-bottom:6px;">Суфікс хелпера без H</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
           Частина імені хелпера після останнього <code>_</code>, без фінального <code>H</code>.<br>
-          З <code style="color:var(--col-helper);">lift_b00a00H</code> беремо <code style="color:var(--col-dgeo);">b00a00</code>.
+          З <code style="color:var(--col-helper);">SKU-lift_b00a00H</code> беремо <code style="color:var(--col-dgeo);">b00a00</code>.
         </div>
       </div>
       <div class="panel">
         <div style="font-weight:600; margin-bottom:6px;">Нерухома геометрія</div>
         <div style="color:var(--dim); font-size:1em; line-height:1.65;">
-          Під <code>base_a</code> — ім'я просто дорівнює імені матеріалу, без додатків.<br>
+          Під <code>SKU-base_a</code> — ім'я просто дорівнює імені матеріалу, без додатків.<br>
           <code style="color:var(--col-sgeo);">SKU-…-metal_a</code> (немає суфікса, немає G)
         </div>
       </div>
@@ -2743,48 +2743,48 @@ const i18nSlides = {
     <div class="tree-line"><span class="tree-prefix"></span><span class="tree-name n-root">SKU-CLIENT-CAR_SEAT-SR</span><span class="tree-comment">← корінь = ім'я сцени</span></div>
     <div class="tree-line"><span class="tree-prefix">│</span></div>
 
-    <!-- base_a -->
+    <!-- SKU-base_a -->
     <div class="tree-node">
       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-        <span class="tree-prefix">└── </span><span class="tree-name n-base">base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← нерухома основа</span>
+        <span class="tree-prefix">└── </span><span class="tree-name n-base">SKU-base_a</span><span class="tree-caret">▼</span><span class="tree-comment">← нерухома основа</span>
       </div>
       <div class="tree-kids">
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span class="tree-comment">← нерухома геометрія</span></div>
         <div class="tree-line"><span class="tree-prefix">    ├── </span><span class="tree-name n-sgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_a</span></div>
         <div class="tree-line"><span class="tree-prefix">    │</span></div>
 
-        <!-- slide_a00H -->
+        <!-- SKU-slide_a00H -->
         <div class="tree-node">
           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a: слайдер вперед-назад</span>
+            <span class="tree-prefix">    └── </span><span class="tree-name n-helper">SKU-slide_a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← a: слайдер вперед-назад</span>
           </div>
           <div class="tree-kids">
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_aa00G</span></div>
             <div class="tree-line"><span class="tree-prefix">        │</span></div>
 
-            <!-- lift_b00a00H -->
+            <!-- SKU-lift_b00a00H -->
             <div class="tree-node">
               <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b: підйом, батько a00</span>
+                <span class="tree-prefix">        └── </span><span class="tree-name n-helper">SKU-lift_b00a00H</span><span class="tree-caret">▼</span><span class="tree-comment">← b: підйом, батько a00</span>
               </div>
               <div class="tree-kids">
                 <div class="tree-line"><span class="tree-prefix">            ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-metal_ab00a00G</span></div>
                 <div class="tree-line"><span class="tree-prefix">            │</span></div>
 
-                <!-- seat_pan_c00b00H -->
+                <!-- SKU-seat_pan_c00b00H -->
                 <div class="tree-node">
                   <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c: нахил подушки, батько b00</span>
+                    <span class="tree-prefix">            └── </span><span class="tree-name n-helper">SKU-seat_pan_c00b00H</span><span class="tree-caret">▼</span><span class="tree-comment">← c: нахил подушки, батько b00</span>
                   </div>
                   <div class="tree-kids">
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ac00b00G</span></div>
                     <div class="tree-line"><span class="tree-prefix">                ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ac00b00G</span></div>
 
-                    <!-- armrest_d01c00H -->
+                    <!-- SKU-armrest_d01c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №01</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d01c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №01</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad01c00G</span></div>
@@ -2792,10 +2792,10 @@ const i18nSlides = {
                       </div>
                     </div>
 
-                    <!-- armrest_d02c00H -->
+                    <!-- SKU-armrest_d02c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №02</span>
+                        <span class="tree-prefix">                ├── </span><span class="tree-name n-helper">SKU-armrest_d02c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← d: подлокотник №02</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                │   ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ad02c00G</span></div>
@@ -2803,19 +2803,19 @@ const i18nSlides = {
                       </div>
                     </div>
 
-                    <!-- backrest_e00c00H -->
+                    <!-- SKU-backrest_e00c00H -->
                     <div class="tree-node">
                       <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e: нахил спинки</span>
+                        <span class="tree-prefix">                └── </span><span class="tree-name n-helper">SKU-backrest_e00c00H</span><span class="tree-caret">▼</span><span class="tree-comment">← e: нахил спинки</span>
                       </div>
                       <div class="tree-kids">
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_ae00c00G</span></div>
                         <div class="tree-line"><span class="tree-prefix">                    ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-plastic_ae00c00G</span></div>
 
-                        <!-- headrest_f00e00H -->
+                        <!-- SKU-headrest_f00e00H -->
                         <div class="tree-node">
                           <div class="tree-line tree-collapsible" onclick="toggleNode(this)">
-                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f: висота підголівника</span>
+                            <span class="tree-prefix">                    └── </span><span class="tree-name n-helper">SKU-headrest_f00e00H</span><span class="tree-caret">▼</span><span class="tree-comment">← f: висота підголівника</span>
                           </div>
                           <div class="tree-kids">
                             <div class="tree-line"><span class="tree-prefix">                        ├── </span><span class="tree-name n-dgeo">SKU-CLIENT-CAR_SEAT-SR-leather_af00e00G</span></div>
@@ -2839,7 +2839,7 @@ const i18nSlides = {
 
   <div style="display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; flex-shrink:0; align-items:center; font-size:1.02em;">
     <span style="color:var(--col-root);">■</span><span style="color:var(--dim);">корінь</span>
-    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">base_a</span>
+    <span style="color:var(--col-base);">■</span><span style="color:var(--dim);">SKU-base_a</span>
     <span style="color:var(--col-helper);">■</span><span style="color:var(--dim);">рухомий хелпер …H</span>
     <span style="color:var(--col-sgeo);">■</span><span style="color:var(--dim);">нерухома геометрія</span>
     <span style="color:var(--col-dgeo);">■</span><span style="color:var(--dim);">рухома геометрія …G</span>
@@ -2884,11 +2884,11 @@ const i18nSlides = {
       <div>
         <div style="color:var(--dim); font-size:0.96em; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">Текстури — за матеріалом, не за геометрією</div>
         <div class="code-block" style="font-size:0.94em; line-height:2.1;">
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span>
-<span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_D.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_N.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_R.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_M.png</span></div>
+<div><span style="color:var(--col-mat);">SKU-CLIENT-CAR_SEAT-SR-metal_a</span><span style="color:var(--col-tex);">_AO.png</span></div>
         </div>
       </div>
 
@@ -2939,11 +2939,11 @@ const i18nSlides = {
     <div class="card fix-step" style="border-color:rgba(63,145,205,.3);">
       <div class="fix-step-num" style="color:var(--col-base);">0</div>
       <div>
-        <div style="font-weight:600; margin-bottom:4px;">Створення base_a</div>
-        <div style="color:var(--dim); font-size:1em;">Якщо base_a відсутній — створюється. Геометрія, що висить прямо під кореневим хелпером, переміщується під base_a.</div>
+        <div style="font-weight:600; margin-bottom:4px;">Створення SKU-base_a</div>
+        <div style="color:var(--dim); font-size:1em;">Якщо SKU-base_a відсутній — створюється. Геометрія, що висить прямо під кореневим хелпером, переміщується під SKU-base_a.</div>
       </div>
       <div style="font-family:Consolas; font-size:0.98em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-sgeo);">geo</span> под корнем<br>→ <span style="color:var(--col-base);">base_a</span>
+        <span style="color:var(--col-sgeo);">geo</span> под корнем<br>→ <span style="color:var(--col-base);">SKU-base_a</span>
       </div>
     </div>
 
@@ -2953,8 +2953,8 @@ const i18nSlides = {
         <div style="font-weight:600; margin-bottom:4px;">Суфікси хелперів</div>
         <div style="color:var(--dim); font-size:1em;">Назва (<code>slide</code>, <code>armrest</code>…) зберігається, суфікс повністю перераховується за структурою дерева: букви, номери, посилання на батьків.</div>
       </div>
-      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right;">
-        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">armrest_d01c00H</span>
+      <div style="font-family:Consolas; font-size:0.96em; color:var(--dim); text-align:right; white-space:nowrap;">
+        <span style="color:var(--col-helper);">armrest_x01H</span><br>→ <span style="color:var(--col-helper);">SKU-armrest_d01c00H</span>
       </div>
     </div>
 
